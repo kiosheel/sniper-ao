@@ -5,4 +5,4 @@ create table chunks (
     embedding vector(1024),
     page int,
     doc_type text
-)
+);

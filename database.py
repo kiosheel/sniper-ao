@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-supabase: Client = create_client(
-    os.environ.get("SUPABASE_URL"),
-    os.environ.get("SUPABASE_SECRET_KEY")
-)
+_url = os.environ.get("SUPABASE_URL", "")
+_key = os.environ.get("SUPABASE_SECRET_KEY", "")
+
+supabase: Client | None = create_client(_url, _key) if _url and _key else None
